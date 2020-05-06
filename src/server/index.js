@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
+app.listen(3000, function () {
     console.log('Example app listening on port 8080!')
 })
 const bodyParser = require("body-parser")
@@ -40,14 +40,19 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-//get route
-app.get('/all', getInfo);
-function getInfo (req, res) {
-    res.send(projectData);
-};
-//post route
-app.post('/add', sendInfo)
-function sendInfo (req, res) {
-    projectData= req.body.url
-    res.send(projectData)
-}
+app.get("/api", function (req, res) {
+  let obj = [];
+
+  textapi.sentiment(
+    {
+      text: req.query.input,
+      mode: "Document",
+    },
+    function (error, response) {
+      if (error === null) {
+        //do the mapping work here
+      }
+      res.send(response);
+    }
+  );
+})

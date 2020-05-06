@@ -1,7 +1,6 @@
-import { submit } from './js/submit.js'
+
 import { handleSubmit } from './js/formHandler'
-import { postData } from './js/formHandler'
-import { updateUI } from './js/formHandler'
+import {validURL} from './js/validURL.js'
 import './styles/resets.scss'
 import './styles/base.scss'
 import './styles/footer.scss'
