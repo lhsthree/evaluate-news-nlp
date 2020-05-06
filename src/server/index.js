@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
 app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
-
+const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
